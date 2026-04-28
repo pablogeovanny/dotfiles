@@ -42,12 +42,22 @@ fi
 
 # 5. Restore Dotfiles with Stow
 echo -e "${YELLOW}[+] Restoring dotfiles with Stow...${NC}"
+mkdir "$HOME/dotfiles"
 cd "$HOME/dotfiles"
-stow -v -R .
+
+# 6. Unstow everything first
+stow -D qtile rofi picom alacritty zsh p10k 2>/dev/null || true
+
+# 7. Remove real files/folders
+rm -rf ~/.config/qtile ~/.config/rofi ~/.config/picom ~/.config/alacritty 2>/dev/null || true
+rm -f ~/.zshrc ~/.p10k.zsh 2>/dev/null || true
+
+# 8. Stow cleanly
+stow -v qtile rofi picom alacritty zsh p10k 2>/dev/null || true
 
 echo -e "\n${GREEN}[+] Setup Complete!${NC}"
 
-# 6. Reboot
+# 9. Reboot
 echo -e "The system will reboot in 10 seconds..."
 echo -e "Press Ctrl + C at any time to cancel the reboot.\n"
 
