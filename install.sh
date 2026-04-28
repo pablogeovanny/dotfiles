@@ -43,7 +43,7 @@ fi
 # 5. Restore Dotfiles with Stow
 echo -e "${YELLOW}[+] Restoring dotfiles with Stow...${NC}"
 cd "$HOME/dotfiles"
-stow --adopt -v -R .
+stow -v -R .
 
 echo -e "\n${GREEN}[+] Setup Complete!${NC}"
 
