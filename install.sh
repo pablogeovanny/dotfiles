@@ -63,7 +63,7 @@ echo -e "\n${GREEN}[+] Setup Complete!${NC}"
 
 # 9. Reboot
 while true; do
-    read -rp "${RED}[!] Do you want to reboot now? [y/n]: ${NC}" answer
+    read -rp "[!] Do you want to reboot now? [y/n]: " answer
     case "$answer" in
         [yY])
             echo -e "\nRebooting now..."
