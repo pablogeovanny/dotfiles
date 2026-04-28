@@ -50,27 +50,32 @@ echo -e "${YELLOW}[+] Restoring dotfiles with Stow...${NC}"
 cd "$HOME/dotfiles"
 
 # 6. Unstow everything first
-stow -D qtile rofi picom alacritty zsh p10k 2>/dev/null || true
+stow -D qtile rofi picom alacritty zsh p10k dmrc 2>/dev/null || true
 
 # 7. Remove real files/folders
 rm -rf ~/.config/qtile ~/.config/rofi ~/.config/picom ~/.config/alacritty 2>/dev/null || true
-rm -f ~/.zshrc ~/.p10k.zsh 2>/dev/null || true
+rm -f ~/.zshrc ~/.p10k.zsh ~/.dmrc 2>/dev/null || true
 
 # 8. Stow cleanly
-stow -v qtile rofi picom alacritty zsh p10k 2>/dev/null || true
+stow -v qtile rofi picom alacritty zsh p10k dmrc 2>/dev/null || true
 
 echo -e "\n${GREEN}[+] Setup Complete!${NC}"
 
 # 9. Reboot
-echo -e "The system will reboot in 10 seconds..."
-echo -e "Press Ctrl + C at any time to cancel the reboot.\n"
-
-# Countdown with progress
-for i in {10..1}; do
-    printf "${RED}Rebooting in %2d seconds... (Ctrl+C to cancel)${NC}\r" $i
-    sleep 1
+while true; do
+    read -rp "${RED}[!] Do you want to reboot now? [y/n]: ${NC}" answer
+    case "$answer" in
+        [yY])
+            echo -e "\nRebooting now..."
+            sudo reboot
+            break
+            ;;
+        [nN])
+            echo -e "\nReboot cancelled."
+            break
+            ;;
+        *)
+            echo "Please enter y or n."
+            ;;
+    esac
 done
-
-echo -e "\n\nRebooting now! 🚀\n"
-sleep 1
-sudo reboot
