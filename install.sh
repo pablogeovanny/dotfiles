@@ -42,7 +42,7 @@ fi
 
 # 5. Restore Dotfiles with Stow
 echo -e "${YELLOW}[+] Restoring dotfiles with Stow...${NC}"
-mkdir "$HOME/dotfiles"
+mkdir "$HOME/dotfiles" || true
 cd "$HOME/dotfiles"
 
 # 6. Unstow everything first
