@@ -27,7 +27,7 @@ sudo apt clean
 
 # 3. Install Dependencies
 echo -e "${YELLOW}[+] Installing Dependencies...${NC}"
-sudo apt install -y qtile rofi htop feh bat lsd eza zsh fzf ranger picom xtrlock spice-vdagent xsel unzip micro alsa-utils stow
+sudo apt install -y qtile alacritty rofi htop feh bat lsd eza zsh fzf ranger picom xtrlock spice-vdagent xsel unzip micro alsa-utils stow
 
 # 4. Clone dotfiles (only if folder doesn't exist)
 echo -e "${YELLOW}[+] Setting up dotfiles...${NC}"
