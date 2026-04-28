@@ -14,19 +14,19 @@ GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
 NC='\033[0m' # No Color
 
-echo -e "${GREEN}[+] Starting Kali Qtile Setup...${NC}\n"
+echo -e "\n${GREEN}[+] Starting Kali Qtile Setup...${NC}\n"
 
 # 1. System Update & Cleanup
-echo -e "${YELLOW}[+] Updating system and installing packages...${NC}"
+echo -e "\n${YELLOW}[+] Updating system and installing packages...${NC}"
 sudo apt update && sudo apt full-upgrade -y
 
 # 2. Clean unused packages
-echo -e "${YELLOW}[+] Celaning unused packages...${NC}"
+echo -e "\n${YELLOW}[+] Celaning unused packages...${NC}"
 sudo apt autoremove --purge -y
 sudo apt clean
 
 # 3. Install Dependencies
-echo -e "${YELLOW}[+] Installing Dependencies...${NC}"
+echo -e "\n${YELLOW}[+] Installing Dependencies...${NC}"
 sudo apt install -y qtile alacritty rofi htop feh bat lsd eza zsh fzf ranger picom xtrlock spice-vdagent xsel unzip micro alsa-utils stow
 sudo wget https://archive.kali.org/archive-keyring.gpg -O /usr/share/keyrings/kali-archive-keyring.gpg
 sudo wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/Hack.zip -O /usr/local/share/fonts/Hack.zip
@@ -35,7 +35,7 @@ sudo rm /usr/local/share/fonts/Hack.zip
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
 
 # 4. Clone dotfiles (only if folder doesn't exist)
-echo -e "${YELLOW}[+] Setting up dotfiles...${NC}"
+echo -e "\n${YELLOW}[+] Setting up dotfiles...${NC}"
 
 if [ -d "$HOME/dotfiles" ]; then
     echo "   Dotfiles folder already exists. Pulling latest changes..."
@@ -46,7 +46,7 @@ else
 fi
 
 # 5. Restore Dotfiles with Stow
-echo -e "${YELLOW}[+] Restoring dotfiles with Stow...${NC}"
+echo -e "\n${YELLOW}[+] Restoring dotfiles with Stow...${NC}"
 cd "$HOME/dotfiles"
 
 # 6. Unstow everything first
