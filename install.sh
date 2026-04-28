@@ -57,7 +57,7 @@ rm -rf ~/.config/qtile ~/.config/rofi ~/.config/picom ~/.config/alacritty 2>/dev
 rm -f ~/.zshrc ~/.p10k.zsh 2>/dev/null || true
 
 # 8. Stow cleanly
-stow -v qtile rofi picom alacritty zsh p10k dmrc 2>/dev/null || true
+stow -v qtile rofi picom alacritty zsh p10k 2>/dev/null || true
 
 echo -e "\n${GREEN}[+] Setup Complete!${NC}"
 echo -e "\n${YELLOW}Now you have to reboot, select the Qtile session and login.${NC}"
