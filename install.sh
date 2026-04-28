@@ -28,6 +28,11 @@ sudo apt clean
 # 3. Install Dependencies
 echo -e "${YELLOW}[+] Installing Dependencies...${NC}"
 sudo apt install -y qtile alacritty rofi htop feh bat lsd eza zsh fzf ranger picom xtrlock spice-vdagent xsel unzip micro alsa-utils stow
+sudo wget https://archive.kali.org/archive-keyring.gpg -O /usr/share/keyrings/kali-archive-keyring.gpg
+sudo wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.0/Hack.zip -O /usr/local/share/fonts/Hack.zip
+sudo unzip /usr/local/share/fonts/Hack.zip -d /usr/local/share/fonts
+sudo rm /usr/local/share/fonts/Hack.zip
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
 
 # 4. Clone dotfiles (only if folder doesn't exist)
 echo -e "${YELLOW}[+] Setting up dotfiles...${NC}"
