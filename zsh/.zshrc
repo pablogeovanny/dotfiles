@@ -258,8 +258,8 @@ alias lr='eza --icons --tree --color=auto'
 alias lg='eza --icons --long --group-directories-first --color=auto'
 
 alias cat='batcat'
-alias catn='batcat --style=plain'
-alias catnp='batcat --style=plain --paging=never'
+alias catp='batcat --style=plain'
+alias catpn='batcat --style=plain --paging=never'
 
 # enable auto-suggestions based on the history
 if [ -f /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
